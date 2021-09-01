@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Levelmanager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Levelmanager : MonoBehaviour
     public List<int> selected = new List<int>();
     public List<int> matches = new List<int>();
     private Dictionary<int,Material> itemMaterial = new Dictionary<int,Material>();
+    public UnityEvent whenPlayerWin;
     
     void Start()
     {
@@ -70,17 +72,23 @@ public class Levelmanager : MonoBehaviour
         ResetMaterial(id2);
         resetOnGoing = false;
     }
+    private IEnumerator Win(){
+        yield return new WaitForSeconds(timeBeforeReset);
+        whenPlayerWin?.Invoke();
+    }
+
     public void RevelMaterial(int id){
         if(resetOnGoing == false && !selected.Contains(id)&& !matches.Contains(id)){
             selected.Add(id);
             Material material = itemMaterial[id];
             items[id].GetComponent<Renderer>().material = material;
-
+            items[id].HasBeenSelected(true);
         }
 
     }
     public void ResetMaterial(int id){
         items[id].GetComponent<Renderer>().material = defaultMaterial;
+        items[id].HasBeenSelected(false);
     }
 
 
@@ -92,9 +100,16 @@ public class Levelmanager : MonoBehaviour
            if(itemMaterial[selected[0]] == itemMaterial[selected[1]]){
                matches.Add(selected[0]);
                matches.Add(selected[1]);
+               items[selected[0]].HasBeenSelected();
+               items[selected[1]].HasBeenSelected();
+                if(matches.Count >= row*col)
+                {
+                    StartCoroutine(Win());
+                }
            }
            else{
                StartCoroutine(ResetMaterials(selected[0], selected[1]));
+              
            }
             selected.Clear();
        }

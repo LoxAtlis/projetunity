@@ -7,13 +7,14 @@ public class ItemBehavior : MonoBehaviour
     public int id = -1;
     public Levelmanager manager;
     public bool mouseOver = false;
+    private Animator animator;
 
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetMouseButtonUp(0 )&& mouseOver){
@@ -21,11 +22,21 @@ public class ItemBehavior : MonoBehaviour
         }
     }
     void OnMouseOver(){
-        transform.localScale = new Vector3 (1,2,1);
+        
         mouseOver = true;
+        animator.SetBool("MouseOver",true);
     }
     void OnMouseExit(){
-        transform.localScale = Vector3.one;
+        
         mouseOver = false;
+        animator.SetBool("MouseOver",false);
+    }
+
+    public void HasBeenSelected(bool selected){
+        animator.SetBool("itemSelected",selected);
+        
+    }
+    public void HasBeenSelected(){
+         animator.SetBool("itemmatch",true);
     }
 }

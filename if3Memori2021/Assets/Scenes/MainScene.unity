@@ -216,6 +216,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 71.069, y: -65.141, z: -385.649}
+--- !u!1 &851415798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 851415800}
+  - component: {fileID: 851415799}
+  m_Layer: 0
+  m_Name: SceneChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &851415799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851415798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb7b138c52840448a5fa414ac84655e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &851415800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851415798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,13 +335,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.6714732, y: -0.018748268, z: -0.026412208, w: 0.7403207}
-  m_LocalPosition: {x: 3.18, y: 15.62, z: 1.02}
+  m_LocalRotation: {x: 0.6158936, y: -0.020613767, z: -0.02498477, w: 0.7871632}
+  m_LocalPosition: {x: 2.55, y: 9.87, z: -1.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 83.325, y: -32.952, z: -33.574}
+  m_LocalEulerAnglesHint: {x: 75.601, y: -14.73, z: -15.087}
 --- !u!1 &1900243013
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 1900243013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.87, y: -0.85, z: 2.81}
-  m_LocalScale: {x: 2.4189, y: 1, z: 2.6865}
+  m_LocalScale: {x: 4.2565384, y: 1, z: 5.3273296}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -405,6 +448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040552726}
   - component: {fileID: 2040552725}
+  - component: {fileID: 2040552727}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -441,6 +485,21 @@ MonoBehaviour:
   items: []
   selected: 
   matches: 
+  whenPlayerWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 851415799}
+        m_TargetAssemblyTypeName: sceneChanger, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: win
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2040552726
 Transform:
   m_ObjectHideFlags: 0
@@ -455,3 +514,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 142.311, z: 0}
+--- !u!114 &2040552727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040552724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb7b138c52840448a5fa414ac84655e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
