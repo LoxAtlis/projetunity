@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class Levelmanager : MonoBehaviour
 {
-    public int row = 3;
-    public int col = 4;
+    private int row;
+    private int col;
     public float gapRow = 1.5f;
     public float gapCol = 1.5f;
     [Range(0f,5f)]
@@ -20,9 +20,14 @@ public class Levelmanager : MonoBehaviour
     public List<int> matches = new List<int>();
     private Dictionary<int,Material> itemMaterial = new Dictionary<int,Material>();
     public UnityEvent whenPlayerWin;
+    private float timer=0;
     
+
     void Start()
     {
+        row = PlayerPrefs.GetInt("row",3);
+        col = PlayerPrefs.GetInt("col",4);
+
         items = new ItemBehavior[row*col];
         int index = 0;
 
@@ -96,6 +101,8 @@ public class Levelmanager : MonoBehaviour
 
     void Update()
     {
+        timer =+ Time.deltaTime;
+        
        if(selected.Count == 2){
            if(itemMaterial[selected[0]] == itemMaterial[selected[1]]){
                matches.Add(selected[0]);
@@ -104,6 +111,7 @@ public class Levelmanager : MonoBehaviour
                items[selected[1]].HasBeenSelected();
                 if(matches.Count >= row*col)
                 {
+                    PlayerPrefs.SetFloat("timer",timer);
                     StartCoroutine(Win());
                 }
            }

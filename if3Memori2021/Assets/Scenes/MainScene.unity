@@ -468,8 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883ea9320c971b941b034785a14252d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: 3
-  col: 4
   gapRow: 1.5
   gapCol: 1.5
   timeBeforeReset: 1
@@ -481,6 +479,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83c378349d2f5784e971496f92476fdf, type: 2}
   - {fileID: 2100000, guid: b595dc30fee642b498184e58de500148, type: 2}
   - {fileID: 2100000, guid: 9460cf21942b8384c983ba6fa6f819db, type: 2}
+  - {fileID: 2100000, guid: 78b038d72895d5c42930fc6554df5b0d, type: 2}
+  - {fileID: 2100000, guid: e7020e84a9ad747479a8a5fba43800ef, type: 2}
+  - {fileID: 2100000, guid: eb609a40133172342ac58f431d893420, type: 2}
+  - {fileID: 2100000, guid: 26f5f7b811f03ed47be851ef00a9d6f1, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 6cf6c23e99852db4fb3d12898080b001, type: 2}
   items: []
   selected: 
